@@ -1,0 +1,8 @@
+.mb_wrap .mb-menu li a {
+    color: #14234b;
+    transition: 0.25s;
+    font-size: 20px;
+    text-transform: capitalize;
+    line-height: 60px;
+    font-weight: 600;
+}

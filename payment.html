@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html>
+<head>
+  	<title>Live Payments | Uw-task</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8, maximum-scale=0.8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="icon" type="image/png" sizes="16x16" href="static/img/favicon.png">    
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"  crossorigin="anonymous">
+    <link rel="stylesheet" href="slick.css">
+    <link rel="stylesheet" href="slick-theme.css">
+    <link rel="stylesheet" href="remixicon.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="custom.css" />
+    <script defer src="https://unpkg.com/alpinejs@3.5.0/dist/cdn.min.js"></script>
+  <style>
+  .mb_wrap .mb-menu li {
+  	box-shadow: none;
+  }
+  .mb_wrap .close-mb-menu {
+    background: #3498db;
+  }
+
+  .row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+/* Create two equal columns that sits next to each other */
+.column {
+  flex: 50%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+}
+#fcf-form {
+    display:block;
+}
+
+.fcf-body {
+    margin: 0;
+    font-family: -apple-system, Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    background-color: #fff;
+    padding: 30px;
+    padding-bottom: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    max-width: 100%;
+}
+
+.fcf-form-group {
+    margin-bottom: 1rem;
+}
+
+.fcf-input-group {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    width: 100%;
+}
+
+.fcf-form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    outline: none;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.fcf-form-control:focus {
+    border: 1px solid #313131;
+}
+
+select.fcf-form-control[size], select.fcf-form-control[multiple] {
+    height: auto;
+}
+
+textarea.fcf-form-control {
+    font-family: -apple-system, Arial, sans-serif;
+    height: auto;
+}
+
+label.fcf-label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.fcf-credit {
+    padding-top: 10px;
+    font-size: 0.9rem;
+    color: #545b62;
+}
+
+.fcf-credit a {
+    color: #545b62;
+    text-decoration: underline;
+}
+
+.fcf-credit a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+.fcf-btn {
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fcf-btn {
+        transition: none;
+    }
+}
+
+.fcf-btn:hover {
+    color: #212529;
+    text-decoration: none;
+}
+
+.fcf-btn:focus, .fcf-btn.focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.fcf-btn-primary {
+    color: #fff;
+    background-color: #3498db;
+    border-color: #3498db;
+}
+
+.fcf-btn-primary:hover {
+    color: #fff;
+    background-color: #0069d9;
+    border-color: #0062cc;
+}
+
+.fcf-btn-primary:focus, .fcf-btn-primary.focus {
+    color: #fff;
+    background-color: #0069d9;
+    border-color: #0062cc;
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
+}
+
+.fcf-btn-lg, .fcf-btn-group-lg>.fcf-btn {
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    border-radius: 0.3rem;
+}
+
+.fcf-btn-block {
+    display: block;
+    width: 100%;
+}
+
+.fcf-btn-block+.fcf-btn-block {
+    margin-top: 0.5rem;
+}
+
+input[type="submit"].fcf-btn-block, input[type="reset"].fcf-btn-block, input[type="button"].fcf-btn-block {
+    width: 100%;
+}
+  </style>
+</head>
+
+<body class="content_body_green">
+	<div class="mb_wrap">
+        <div class="mb-overlay">
+            <div class="mb-overlay-bg"></div>
+            <div class="mb-menu">
+                <div class="close">
+                    <ion-icon class="close-mb-menu" name="close-outline"></ion-icon>
+                </div>
+                <!-- your list menu in mobile here -->
+                <ul>
+                    <li><a class="has-dropdown-m " href="./">Home</a></li>
+                   
+            </div>
+        </div>
+    </div><div class="hero has-style4">
+<div class="site-header in-dark">
+	<header id="masthead" class="site-header header-3 both-types no-transition" style="border-bottom: solid 1px #ffffff26;">
+		<div class="container">
+			<div class="header-wrap">
+				<div class="header-wrap-inner">
+					<div class="left-part">
+						<div class="site-branding">
+							<div class="site-title">
+								<a href="index.html">
+									<div class="logo">
+									  <img src="logo-whitee.png" class="svg-logo"  style="max-height: 150px;">
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="right-part right">
+						<nav id="site-navigation" class="main-nav with-counters visible">
+							<div class="mbl-overlay ">
+								<div id="mega-menu-wrap" class="main-nav-container" role="navigation">
+									<ul id="primary-menu" class="menu">
+										<li class="mega-menu-item nav-item -0 has-submenu">
+											<a href="./" class="menu-link main-menu-link item-title"><span class="">Home</span></a>
+										</li>
+
+                    
+								</div>
+
+							</div>
+						</nav>
+						<!-- Fullscreen -->
+						<div class="clb-hamburger btn-round btn-round-light" tabindex="1">
+							<div class="navbar-menu">
+														
+							<div class="mb_wrap">
+								<div class="burger is_white">
+									<div class="menu-toggle-icon">
+										<div class="cb-menu-toggle">
+											<div class="menu">
+												<input type="checkbox">
+												<div class="line-menu"></div>
+												<div class="line-menu"></div>
+												<div class="line-menu"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+</div>
+<div class="spacer_header"></div><div class="container">
+<div class="hero_wrap">
+<br>
+<br>
+<h2 class="title mb-30 text-center" style="    color: white;">Live Donate Your Sadaqat and Zakat<br><svg height="100" width="100" class="blinking"><circle cx="50" cy="50" r="10" fill="red" /></svg></h2>
+<center>  <p class="text" style="color: white;"><h3>Account Number <br>jazzcash <br>03076731464 <br>Mudassar Razzaq</h3>!</p> </center>
+
+<br>
+<br><a href="https://fojimudassar.github.io/start-from-niasab/"><h5>Calculater Zakat</h5></a>
+</div>
+</div>
+<div class="devider"></div>
+</div>
+<br>
+<br>.
+    </div>
+    
+    <style>
+/* Tournaments Area Start */
+.tournaments {
+  padding: 112px 0px 118px;
+  background-image: url(static/img/58.png);
+} }
+  .tournaments .section-heading {
+    margin-bottom: 58px; }
+  .tournaments .info-table {
+    margin-top: 60px; }
+    .tournaments .info-table .main-box {
+      padding: 0px 0px 24px;
+      border: 1px solid rgba(255, 255, 255, 0.1); }
+      .tournaments .info-table .main-box .main-header-area {
+        padding: 25px 30px 26px;
+        display: block;
+        text-align: center;
+        background: #0c1330;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        .tournaments .info-table .main-box .main-header-area .nav {
+          display: inline-block; }
+          .tournaments .info-table .main-box .main-header-area .nav li {
+            display: inline-block;
+            position: relative; }
+            .tournaments .info-table .main-box .main-header-area .nav li::before {
+              position: absolute;
+              content: "";
+              height: 26px;
+              width: 4px;
+              background: #fff;
+              right: -2px;
+              top: 50%;
+              -webkit-transform: translateY(-50%);
+              -ms-transform: translateY(-50%);
+              transform: translateY(-50%);
+              z-index: 9; }
+            .tournaments .info-table .main-box .main-header-area .nav li:last-child::before {
+              display: none; }
+            .tournaments .info-table .main-box .main-header-area .nav li a {
+              margin-bottom: 0px;
+              font-size: 28px;
+              line-height: 38px;
+              font-weight: 700;
+              margin: 0px 10px;
+              text-transform: uppercase;
+              color: #fff; }
+              .tournaments .info-table .main-box .main-header-area .nav li a.active {
+                color: #f9314b; }
+      .tournaments .info-table .main-box .inner-table-content {
+        padding: 0px 30px; }
+        .tournaments .info-table .main-box .inner-table-content .header-area {
+          display: block;
+          text-align: center;
+          padding: 40px 0px 40px; }
+          .tournaments .info-table .main-box .inner-table-content .header-area ul {
+            display: inline-block;
+            border-radius: 50px;
+            padding: 20px 15px;
+            -webkit-box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2); }
+            .tournaments .info-table .main-box .inner-table-content .header-area ul .nav-item {
+              display: inline-block; }
+              .tournaments .info-table .main-box .inner-table-content .header-area ul .nav-item .nav-link {
+                line-height: 50px;
+                padding: 0px;
+                padding: 0px 50px;
+                border-radius: 50px;
+                font-size: 18px;
+                font-weight: 600;
+                text-transform: uppercase;
+                color: #FFF;
+                background: #252f5a;
+                margin: 0px 5px; }
+                .tournaments .info-table .main-box .inner-table-content .header-area ul .nav-item .nav-link.active {
+                  background: #f9314b;
+                  color: #fff; }
+        .tournaments .info-table .main-box .inner-table-content .tab-content {
+          margin-top: 0px; }
+        .tournaments .info-table .main-box .inner-table-content .table {
+          -webkit-box-shadow: 0px 10px 40px 0px rgba(0, 0, 0, 0.4);
+          box-shadow: 0px 10px 40px 0px rgba(0, 0, 0, 0.4);
+          position: relative; }
+          .tournaments .info-table .main-box .inner-table-content .table tr {
+            -webkit-transition: all 0.3s ease-in;
+            -o-transition: all 0.3s ease-in;
+            transition: all 0.3s ease-in; }
+            .tournaments .info-table .main-box .inner-table-content .table tr td,
+            .tournaments .info-table .main-box .inner-table-content .table tr th {
+              border-top: 1px solid rgba(255, 255, 255, 0.09); }
+            .tournaments .info-table .main-box .inner-table-content .table tr th {
+              font-size: 18px;
+              font-weight: 600;
+              text-transform: uppercase;
+              border-top: 0px;
+              border-bottom: 0px;
+              padding: 20px 15px;
+              background: #3498db;
+              color: #fff;
+              text-align: center;
+            }
+            .tournaments .info-table .main-box .inner-table-content .table tr td {
+              vertical-align: middle;
+              padding: 20px 15px;
+              font-weight: 600;
+              font-size: 18px;
+              text-transform: uppercase;
+              font-weight: 700;
+              color: #a1aed4;
+              text-align:center;
+            }
+              .table {
+                width: 100%;
+                max-width: 100%;
+                margin-bottom: 1rem;
+                background-color: #fff;
+}
+              .tournaments .info-table .main-box .inner-table-content .table tr td img {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                display: inline-block; }
+              .tournaments .info-table .main-box .inner-table-content .table tr td:nth-child(1) img, .tournaments .info-table .main-box .inner-table-content .table tr td:nth-child(3) img, .tournaments .info-table .main-box .inner-table-content .table tr td:nth-child(6) img {
+                margin-right: 5px; }
+              .tournaments .info-table .main-box .inner-table-content .table tr td:nth-child(1) {
+                color: #000; }
+              .tournaments .info-table .main-box .inner-table-content .table tr td:nth-child(3) {
+                color: #045cf0; }
+              .tournaments .info-table .main-box .inner-table-content .table tr td:nth-child(5), .tournaments .info-table .main-box .inner-table-content .table tr td:nth-child(6) {
+                color: #16e330; }
+              .tournaments .info-table .main-box .inner-table-content .table tr td:last-child {
+                color: #16e330; }
+            .tournaments .info-table .main-box .inner-table-content .table tr:hover {
+              background: #192246; }
+      .tournaments .info-table .main-box .info-content {
+        padding-bottom: 15px; }
+        .tournaments .info-table .main-box .info-content .info-box .title {
+          font-size: 24px;
+          line-height: 34px;
+          font-weight: 700;
+          color: #fff;
+          margin-bottom: 15px; }
+        .tournaments .info-table .main-box .info-content .info-box .text {
+          font-size: 20px;
+          line-height: 30px;
+          font-weight: 300; }
+        .tournaments .info-table .main-box .info-content .info-box.two {
+          margin-top: 53px; }
+        .tournaments .info-table .main-box .info-content .info-box.three {
+          margin-top: 53px; }
+        .tournaments .info-table .main-box .info-content .mybtn1 {
+          margin-top: 16px; }
+
+.tournament-time-box {
+  background: #070b28; }
+  .tournament-time-box .top-area {
+    padding: 23px 30px 23px;
+    background: #0b122e;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    -webkit-box-shadow: 1.753px -3.595px 10px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 1.753px -3.595px 10px 0px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden; }
+    .tournament-time-box .top-area .status {
+      position: absolute;
+      background: #3c26db;
+      color: #fff;
+      font-size: 18px;
+      left: -57px;
+      top: 18px;
+      line-height: 28px;
+      height: 40px;
+      line-height: 40px;
+      width: 200px;
+      text-align: center;
+      -webkit-transform: rotate(-41deg);
+      -ms-transform: rotate(-41deg);
+      transform: rotate(-41deg); }
+    .tournament-time-box .top-area .title {
+      font-size: 28px;
+      line-height: 38px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0px;
+      text-transform: uppercase; }
+    .tournament-time-box .top-area .sub-title {
+      margin-bottom: 0px;
+      text-transform: uppercase;
+      color: #f9314b;
+      font-size: 18px;
+      line-height: 28px; }
+  .tournament-time-box .timer-area {
+    padding: 50px 30px 76px;
+    text-align: center;
+    position: relative; }
+    .tournament-time-box .timer-area .title {
+      font-size: 28px;
+      line-height: 38px;
+      font-weight: 700;
+      color: #fff;
+      text-transform: uppercase;
+      margin-bottom: 5px; }
+    .tournament-time-box .timer-area .clock {
+      display: inline-block; }
+    .tournament-time-box .timer-area .clock2 {
+      display: inline-block; }
+
+.clock.flip-clock-wrapper {
+  display: inline-block; }
+
+.flip-clock-wrapper {
+  width: auto; }
+
+.flip-clock-wrapper ul {
+  width: 50px;
+  border: 0px;
+  position: relative; }
+
+.flip-clock-wrapper ul::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 9;
+  border-radius: 3px; }
+
+.flip-clock-wrapper ul li a div div.inn {
+  font-size: 60px;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  background-color: #0c132e; }
+
+.flip-clock-divider .flip-clock-label {
+  bottom: -38px;
+  right: -88px;
+  top: auto;
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 300 !important;
+  color: #a1aed4;
+  letter-spacing: 2px; }
+
+.flip-clock-divider.minutes .flip-clock-label {
+  right: -104px; }
+
+.flip-clock-divider.hours .flip-clock-label {
+  right: -94px; }
+
+.flip-clock-dot {
+  background: #959ba9; }
+  .blinking {
+    -webkit-animation: 1s blink ease infinite;
+    -moz-animation: 1s blink ease infinite;
+    -ms-animation: 1s blink ease infinite;
+    -o-animation: 1s blink ease infinite;
+    animation: 1s blink ease infinite;
+
+  }
+
+  @keyframes  "blink" {
+    from, to {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  @-moz-keyframes blink {
+    from, to {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  @-webkit-keyframes "blink" {
+    from, to {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  @-ms-keyframes "blink" {
+    from, to {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  @-o-keyframes "blink" {
+    from, to {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+  .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 20px;
+  align-items: stretch;
+  }
+.grid img {
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+  max-width: 100%;
+}
+/* Tournaments Area End */
+* {box-sizing:border-box}
+
+
+</style>
+
+
+
+
+	
+<script src="static/js/jquery.min.js"></script>
+<!--script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script-->
+<script src="static/js/bootstrap.min.js"></script>
+<script src="static/js/slick.min.js"></script>
+<script src="static/js/typed.js"></script>
+<script src="static/js/jquery.counterup.min.js"></script>
+<script src="static/js/axios.min.js"></script>
+<script src="static/js/social-proof.js"></script>
+
+<script src="static/js/main.js"></script>
+
+<script>
+// Initialize time; check local storage for time, if not there, start new 10 mins
+const initializeTime = () => {
+  
+  }
+
+  startTimer(diffInTime)
+}
+
+
+initializeTime();
+//startTimer(5*60); // 4 minutes in seconds
+
+
+$('.work-boxes-slick').slick({
+	infinite: true,
+	slidesToShow: 3,
+	slidesToScroll: 1,
+	dots: true,
+	autoplay: true,
+	autoplaySpeed: 2000,
+	arrows: false,
+	responsive: [{
+		breakpoint: 950,
+		settings: {
+			slidesToShow: 2,
+			slidesToScroll: 1
+		}
+	},
+	{
+		breakpoint: 480,
+		settings: {
+			slidesToShow: 1,
+			slidesToScroll: 1
+		}
+	}]
+
+});
+
+$('.client_slick').slick({
+	 infinite: true,
+	 slidesToShow: 1,
+	 slidesToScroll: 1,
+	 dots: false,
+	 fade: true,
+	 autoplay: true,
+	 autoplaySpeed: 2000,
+	 arrows: true,
+
+ });
+
+$(window).scroll(function(){
+    $(".xx").css("opacity", 1 - $(window).scrollTop() / 250);
+  });
+</script><script src="livePayments.js">
+</script>
+<script>
+
+var slideIndex = 1;
+//showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+}
+
+</script>
+</body>
+</html>
